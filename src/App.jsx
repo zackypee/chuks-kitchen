@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import { Routes, Route } from 'react-router-dom';
 import SignUp from "./auth/SignUp";
 import Order from "./pages/Order";
-import SignIn from "./auth/SIgnIn";
+import SignIn from "./auth/SignIn";
 import Onboarding from "./pages/Onboarding";
 import Explore from "./pages/Explore";
 import Cart from "./pages/Cart";
