@@ -34,7 +34,7 @@ export default function Order() {
                 onChange={(e) => setPromoCode(e.target.value)}
                 className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm outline-none focus:border-orange-400"
               />
-              <button className="bg-orange-400 hover:bg-orange-600 text-white px-5 py-2 rounded-lg text-sm font-medium">
+              <button className="bg-orange-400 hover:bg-orange-600 w-40 text-white md:px-5 md:py-2 rounded-lg text-sm font-medium">
                 Login
               </button>
             </div>

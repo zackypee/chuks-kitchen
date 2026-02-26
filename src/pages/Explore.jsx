@@ -2,8 +2,17 @@ import React, { useState } from "react";
 import NavSection from "../components/NavSection";
 import Footer from "../components/Footer";
 import { FaPlus } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 export default function Explore() {
+  const categories = [
+    "Popular",
+    "Jollof Rice & Entrees",
+    "Swallow & Soups",
+    "Grills & sides",
+    "Beverages",
+    "Desserts",
+  ];
   const popularCategories = [
     {
       id: 1,
@@ -46,6 +55,7 @@ export default function Explore() {
   const [showAll, setShowAll] = useState(false);
   const [showAllRice, setShowAllRice] = useState(false);
   const [showAllSwallow, setShowAllSwallow] = useState(false);
+  const [active, setActive] = useState("Popular");
 
   const riceEntrees = [
     {
@@ -161,6 +171,27 @@ export default function Explore() {
           </div>
         </section>
 
+        {/* Menu Categories */}
+        <section>
+          <div className="flex flex-col gap-1 px-4 py-4">
+            <h2 className="font-bold text-lg mb-3">Menu Categories</h2>
+
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActive(category)}
+                className={`text-left px-4 py-3 rounded-sm font-medium transition-colors duration-200 ${
+                  active === category
+                    ? "bg-orange-100 border-l-4 border-orange-500 text-black"
+                    : "text-black hover:bg-gray-100"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </section>
+
         {/* Popular Categories */}
         <section className="mt-28">
           <div className="text-start px-6 mb-6">
@@ -189,12 +220,13 @@ export default function Explore() {
                     </div>
                     <div className="flex justify-between px-4 md:pb-8 items-center bg-white md:py-4">
                       <p className="text-orange-400">₦3,500</p>
-                      <button
+                      <Link
+                        to="/cart"
                         aria-label={`Add ${item.name} to cart`}
                         className="bg-orange-400 rounded-full size-5 items-center justify-center flex"
                       >
                         <FaPlus className="text-white" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -241,12 +273,13 @@ export default function Explore() {
                     </div>
                     <div className="flex justify-between px-4 md:pb-8 items-center bg-white md:py-4">
                       <p className="text-orange-400">{item.price}</p>
-                      <button
+                      <Link
+                        to="/cart"
                         aria-label={`Add ${item.name} to cart`}
                         className="bg-orange-400 rounded-full size-5 items-center justify-center flex"
                       >
                         <FaPlus className="text-white" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -293,12 +326,13 @@ export default function Explore() {
                     </div>
                     <div className="flex justify-between px-4 md:pb-8 items-center bg-white md:py-4">
                       <p className="text-orange-400">{item.price}</p>
-                      <button
+                      <Link
+                        to="/cart"
                         aria-label={`Add ${item.name} to cart`}
                         className="bg-orange-400 rounded-full size-5 items-center justify-center flex"
                       >
                         <FaPlus className="text-white" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

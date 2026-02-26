@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../components/Footer";
 import { IoMdMail } from "react-icons/io";
 import { MdLock } from "react-icons/md";
 import { FaFacebookF } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { FaEyeSlash } from "react-icons/fa";
+import { IoEyeSharp } from "react-icons/io5";
 
 export default function SignIn() {
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <div>
       <div className="flex flex-col min-h-screen md:grid md:grid-cols-2 gap-0 font-body">
@@ -54,17 +57,27 @@ export default function SignIn() {
                   </div>
                 </label>
 
-                <label className="text-[#3B4758] flex flex-col gap-2">
-                  Password
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="password" className="text-[#3B4758]">
+                    Password
+                  </label>
                   <div className="relative">
                     <MdLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 cursor-pointer"
+                    >
+                      {showPassword ? <IoEyeSharp /> : <FaEyeSlash />}
+                    </button>
                     <input
-                      type="password"
+                      id="password"
+                      type={showPassword ? "text" : "password"}
                       placeholder="******"
-                      className="w-full pl-10 pr-4 py-3 outline-solid outline outline-[#BDBDBD] rounded-lg focus:outline-[#FF7A18] transition-colors placeholder:text-gray-400"
+                      className="w-full pl-10 pr-10 py-3 outline outline-[#BDBDBD] rounded-lg focus:outline-[#FF7A18] transition-colors placeholder:text-gray-400"
                     />
                   </div>
-                </label>
+                </div>
 
                 <div className="flex justify-end text-[#1E88E5] font-extralight text-xs">
                   <Link to="/forgot-password">Forgot Password?</Link>
@@ -73,9 +86,9 @@ export default function SignIn() {
                 <Link
                   to="/home"
                   type="submit"
-                  className="bg-[#FF7A18] text-white text-center rounded-lg font-normal py-3 w-full"
+                  className="bg-orange-400 hover:bg-orange-600 transition duration-300 text-white text-center rounded-lg font-normal py-3 w-full"
                 >
-                Continue
+                  Continue
                 </Link>
               </form>
             </div>

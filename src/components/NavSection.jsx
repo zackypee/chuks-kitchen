@@ -119,14 +119,14 @@ export default function NavSection() {
   // active link style helper
   const navClass = ({ isActive }) =>
     isActive
-      ? "text-[#FF7A18] font-semibold border-b-2 border-[#FF7A18]"
-      : "hover:text-[#FF7A18] transition-colors duration-300";
+      ? "text-orange-400 font-semibold border-b-2 border-[#FF7A18]"
+      : "hover:text-orange-600 transition-colors duration-300";
 
   return (
     <nav className="font-body fixed top-0 left-0 right-0 z-40 shadow-lg bg-white">
       {/* Top bar */}
       <div className="flex justify-between px-8 items-center h-12">
-        <img src="logo.png" alt="Chuks Kitchen logo" />
+        <Link to="/home"><img src="logo.png" alt="Chuks Kitchen logo" /></Link>
 
         {/* Desktop links */}
         <ul className="hidden md:flex gap-24">
@@ -142,7 +142,7 @@ export default function NavSection() {
         {/* Login */}
         <Link
           to="/signin"
-          className="bg-[#FF7A18] w-25 h-8 rounded-lg text-white hidden md:flex items-center justify-center"
+          className="bg-orange-400 hover:bg-orange-600 hover:shadow-md transition duration-300 w-25 h-8 rounded-lg text-white hidden md:flex items-center justify-center"
         >
           Login
         </Link>
@@ -168,8 +168,8 @@ export default function NavSection() {
                 onClick={closeMobileView}
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#FF7A18] font-semibold"
-                    : "hover:text-[#FF7A18]"
+                    ? "text-orange-400 font-semibold"
+                    : "hover:text-orange-600 "
                 }
               >
                 {item.page}

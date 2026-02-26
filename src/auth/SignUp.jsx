@@ -1,12 +1,17 @@
-import React from "react";
+
+import React, { useState } from "react";
 import Footer from "../components/Footer";
 import { IoMdMail } from "react-icons/io";
 import { MdLock } from "react-icons/md";
 import { FaFacebookF } from "react-icons/fa6";
 import { IoMdCall } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { FaEyeSlash } from "react-icons/fa";
+import { IoEyeSharp } from "react-icons/io5";
 
 export default function SignUp() {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div>
       <div className="flex flex-col min-h-screen md:grid md:grid-cols-2 gap-0 font-body">
@@ -67,29 +72,49 @@ export default function SignUp() {
                   </div>
                 </label>
 
-                <label className="text-[#3B4758] flex flex-col gap-2">
-                  Password
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="password" className="text-[#3B4758]">
+                    Password
+                  </label>
                   <div className="relative">
                     <MdLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 cursor-pointer"
+                    >
+                      {showPassword ? <IoEyeSharp /> : <FaEyeSlash />}
+                    </button>
                     <input
-                      type="password"
+                      id="password"
+                      type={showPassword ? "text" : "password"}
                       placeholder="******"
-                      className="w-full pl-10 pr-4 py-3 outline-solid outline outline-[#BDBDBD] rounded-lg focus:outline-[#FF7A18] transition-colors placeholder:text-black"
+                      className="w-full pl-10 pr-10 py-3 outline outline-[#BDBDBD] rounded-lg focus:outline-[#FF7A18] transition-colors placeholder:text-gray-400"
                     />
                   </div>
-                </label>
+                </div>
 
-                <label className="text-[#3B4758] flex flex-col gap-2">
-                  Confirm Password
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="confirm-password" className="text-[#3B4758]">
+                    Confirm Password
+                  </label>
                   <div className="relative">
                     <MdLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 cursor-pointer"
+                    >
+                      {showPassword ? <IoEyeSharp /> : <FaEyeSlash />}
+                    </button>
                     <input
-                      type="password"
+                      id="confirm-password"
+                      type={showPassword ? "text" : "password"}
                       placeholder="******"
-                      className="w-full pl-10 pr-4 py-3 outline-solid outline outline-[#BDBDBD] rounded-lg focus:outline-[#FF7A18] transition-colors placeholder:text-black"
+                      className="w-full pl-10 pr-10 py-3 outline outline-[#BDBDBD] rounded-lg focus:outline-[#FF7A18] transition-colors placeholder:text-gray-400"
                     />
                   </div>
-                </label>
+                </div>
                 <label className="flex gap-2 items-start font-extralight text-xs">
                   <input type="checkbox" className="mt-1" />I agree to the{" "}
                   <Link to="/terms" className="text-[#1E88E5]">

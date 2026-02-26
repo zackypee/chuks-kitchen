@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NavSection from "../components/NavSection";
 import { IoIosSearch } from "react-icons/io";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 const chefSpecial = [
   {
@@ -171,12 +172,13 @@ export default function Home() {
                     <p className="text-[#FF7A18] text-xs font-semibold">
                       {item.price}
                     </p>
-                    <button
+                    <Link
+                      to="/cart"
                       aria-label={`Add ${item.name} to cart`}
                       className="bg-[#FF7A18] text-white rounded-lg px-5 py-2 hover:bg-orange-600 transition-colors"
                     >
                       Add to cart
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </article>
