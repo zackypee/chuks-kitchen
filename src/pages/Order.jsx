@@ -11,7 +11,7 @@ export default function Order() {
     <div>
       <NavSection />
 
-      <main className="min-h-screen bg-gray-100 py-20 px-4 flex justify-center">
+      <main className="min-h-screen bg-gray-100 py-20 px-4 flex justify-center font-body">
         <div className="w-full max-w-lg bg-white rounded-xl p-6 flex flex-col gap-5 shadow-sm">
 
           {/* Title */}

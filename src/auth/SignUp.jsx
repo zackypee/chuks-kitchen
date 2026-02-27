@@ -128,7 +128,7 @@ export default function SignUp() {
                 <Link
                   to="/home"
                   type="submit"
-                  className="bg-[#FF7A18] text-center text-white rounded-lg font-normal py-3 w-full"
+                  className="bg-orange-400 text-center text-white rounded-lg font-normal py-3 w-full"
                 >
                   Continue
                 </Link>

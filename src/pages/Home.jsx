@@ -82,9 +82,9 @@ export default function Home() {
               <p className="text-white text-lg md:text-xl font-medium">
                 Handcrafted with passion, delivered with care.
               </p>
-              <button className="bg-[#FF7A18] text-white px-6 py-4 rounded-xl self-start text-lg font-medium hover:bg-orange-600 transition-colors">
+              <Link to="/explore" className="bg-orange-400 text-white px-6 py-4 rounded-xl self-start text-lg font-medium hover:bg-orange-600 transition-colors">
                 Discover what's new
-              </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -169,13 +169,13 @@ export default function Home() {
                   <h3 className="font-bold">{item.name}</h3>
                   <p className="mt-2 font-light text-sm">{item.text}</p>
                   <div className="flex justify-between mt-4 items-center">
-                    <p className="text-[#FF7A18] text-xs font-semibold">
+                    <p className="text-orange-400 text-xs font-semibold">
                       {item.price}
                     </p>
                     <Link
                       to="/cart"
                       aria-label={`Add ${item.name} to cart`}
-                      className="bg-[#FF7A18] text-white rounded-lg px-5 py-2 hover:bg-orange-600 transition-colors"
+                      className="bg-orange-400 text-white rounded-lg px-5 py-2 hover:bg-orange-600 transition-colors"
                     >
                       Add to cart
                     </Link>
