@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import NavSection from "../components/NavSection";
 import Footer from "../components/Footer";
 import { FaPlus } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../hooks/useCart";
 
 export default function Explore() {
   const categories = [
@@ -56,6 +57,8 @@ export default function Explore() {
   const [showAllRice, setShowAllRice] = useState(false);
   const [showAllSwallow, setShowAllSwallow] = useState(false);
   const [active, setActive] = useState("Popular");
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   const riceEntrees = [
     {
@@ -220,13 +223,16 @@ export default function Explore() {
                     </div>
                     <div className="flex justify-between px-4 md:pb-8 items-center bg-white md:py-4">
                       <p className="text-orange-400">₦3,500</p>
-                      <Link
-                        to="/cart"
+                      <button
+                        onClick={() => {
+                          addToCart(item);
+                          navigate("/cart");
+                        }}
                         aria-label={`Add ${item.name} to cart`}
-                        className="bg-orange-400 rounded-full size-5 items-center justify-center flex"
+                        className="bg-orange-400 rounded-full size-5 items-center justify-center flex hover:bg-orange-600 transition-colors"
                       >
                         <FaPlus className="text-white" />
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -266,20 +272,23 @@ export default function Explore() {
                       className="w-full h-full object-cover p-1 md:p-0"
                     />
                   </div>
-                  <div className="flex flex-col justify-between flex-1 pl-2 md:bg-white md:py-4 md:px-4">
+                   <div className="flex flex-col justify-between flex-1 pl-2 md:bg-white md:py-4 md:px-4">
                     <div className="py-2 text-left">
                       <h3 className="font-bold text-gray-800">{item.name}</h3>
                       <p className="font-light text-sm">{item.text}</p>
                     </div>
                     <div className="flex justify-between px-4 md:pb-8 items-center bg-white md:py-4">
                       <p className="text-orange-400">{item.price}</p>
-                      <Link
-                        to="/cart"
+                      <button
+                        onClick={() => {
+                          addToCart(item);
+                          navigate("/cart");
+                        }}
                         aria-label={`Add ${item.name} to cart`}
-                        className="bg-orange-400 rounded-full size-5 items-center justify-center flex"
+                        className="bg-orange-400 rounded-full size-5 items-center justify-center flex hover:bg-orange-600 transition-colors"
                       >
                         <FaPlus className="text-white" />
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -326,13 +335,16 @@ export default function Explore() {
                     </div>
                     <div className="flex justify-between px-4 md:pb-8 items-center bg-white md:py-4">
                       <p className="text-orange-400">{item.price}</p>
-                      <Link
-                        to="/cart"
+                      <button
+                        onClick={() => {
+                          addToCart(item);
+                          navigate("/cart");
+                        }}
                         aria-label={`Add ${item.name} to cart`}
-                        className="bg-orange-400 rounded-full size-5 items-center justify-center flex"
+                        className="bg-orange-400 rounded-full size-5 items-center justify-center flex hover:bg-orange-600 transition-colors"
                       >
                         <FaPlus className="text-white" />
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </div>

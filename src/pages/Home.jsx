@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import NavSection from "../components/NavSection";
 import { IoIosSearch } from "react-icons/io";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useCart } from "../hooks/useCart";
 
 const chefSpecial = [
   {
@@ -61,6 +62,8 @@ export default function Home() {
 
   const [showAll, setShowAll] = useState(false);
   const [viewSpecial, setViewSpecial] = useState(false);
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   return (
     <div className="font-body">
@@ -172,13 +175,16 @@ export default function Home() {
                     <p className="text-orange-400 text-xs font-semibold">
                       {item.price}
                     </p>
-                    <Link
-                      to="/cart"
+                    <button
+                      onClick={() => {
+                        addToCart(item);
+                        navigate("/cart");
+                      }}
                       aria-label={`Add ${item.name} to cart`}
                       className="bg-orange-400 text-white rounded-lg px-5 py-2 hover:bg-orange-600 transition-colors"
                     >
                       Add to cart
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </article>
